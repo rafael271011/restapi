@@ -41,6 +41,16 @@ def add_users():
     cursor.close()
  
     return 'User Added!'
+
+@app.route('/adduser/<username>/<email>/<password>', methods=['POST'])
+def add_user(username, email, password):
+    cursor = mysql.connection.cursor()
+    query = "INSERT INTO users (username, email, password) VALUES (%s, %s, %s)"
+    cursor.execute(query, (username, email, password))
+    mysql.connection.commit()
+    cursor.close()
+
+    return 'User Added!'
  
 if __name__ == '__main__':
     app.run(debug=True)
