@@ -13,7 +13,7 @@ mysql = MySQL(app)
 
 @app.route('/')
 def home():
-    return "✅ Flask + MySQL REST API για χρήστες είναι έτοιμο!"
+    return " Flask + MySQL REST API για χρήστες είναι έτοιμο!"
 
 @app.route('/users', methods=['GET'])
 def get_users():
